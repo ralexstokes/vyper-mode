@@ -1,8 +1,10 @@
-;;; vyper-mode.el --- Vyper mode for Emacs
+;;; vyper-mode.el --- Vyper mode for Emacs -*- lexical-binding: t -*-
 
 ;; Author: Alex Stokes <r.alex.stokes@gmail.com>
+;; Version: 0.0.1
 ;; URL: https://github.com/ralexstokes/vyper-mode
-;; Keywords: vyper, blockchain
+;; Keywords: languages
+;; Package-Requires: ((emacs "24.3"))
 
 ;;; Commentary:
 
@@ -18,7 +20,7 @@
     (modify-syntax-entry ?' "\"" table)
     (modify-syntax-entry ?` "$" table)
     table)
-  "Syntax table for Vyper files")
+  "Syntax table for Vyper files.")
 
 (defvar vyper-font-lock-keywords
   `(;; keywords
@@ -106,7 +108,7 @@
           symbol-end) . font-lock-builtin-face)))
 
 ;;;###autoload
-  (define-derived-mode vyper-mode prog-mode "Vyper mode"
+(define-derived-mode vyper-mode prog-mode "Vyper mode"
   "Major mode for Vyper"
   :syntax-table vyper-mode-syntax-table
   (setq-local font-lock-defaults
@@ -115,7 +117,7 @@
   (setq-local indent-tabs-mode nil)
   (setq-local comment-start "# ")
   (setq-local comment-start-skip "#+\\s-* ")
-  (font-lock-fontify-buffer))
+  (font-lock-ensure))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.vy\\'" . vyper-mode))
