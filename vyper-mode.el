@@ -1,4 +1,4 @@
-;;; vyper-mode.el --- Vyper mode for Emacs -*- lexical-binding: t -*-
+;;; vyper-mode.el --- Major mode for the Vyper programming language -*- lexical-binding: t -*-
 
 ;; Author: Alex Stokes <r.alex.stokes@gmail.com>
 ;; Version: 0.0.1
@@ -116,8 +116,7 @@
   (setq-local tab-width 4)
   (setq-local indent-tabs-mode nil)
   (setq-local comment-start "# ")
-  (setq-local comment-start-skip "#+\\s-* ")
-  (font-lock-ensure))
+  (setq-local comment-start-skip "#+\\s-* "))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.vy\\'" . vyper-mode))
